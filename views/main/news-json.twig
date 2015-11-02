@@ -1,0 +1,21 @@
+{% extends "layout.twig" %}
+{% block navbar %}
+    {% set section = 'news-json' %}
+    {{ parent() }}
+{% endblock %}
+{% block title %}Espen's playground (JSON){% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="list-group">
+            {% for item in items %}
+                <a class="list-group-item" href="{{ item.link }}">
+                    <h4 class="list-group-item-heading">
+                        {{ item.title }} <span class="badge">{{ item.date }} {{ item.time }}</span>
+                    </h4>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

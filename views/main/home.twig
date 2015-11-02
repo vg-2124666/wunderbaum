@@ -1,0 +1,14 @@
+{% extends "layout.twig" %}
+{% block navbar %}
+    {% set section = 'home' %}
+    {{ parent() }}
+{% endblock %}
+{% block title %}Home{% endblock %}
+{% block intro %}
+<div class="well">
+    <p>
+    <h3>Hi there!</h3>
+    Please select an item from the list below.
+    </p>
+</div>
+{% endblock %}

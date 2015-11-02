@@ -1,0 +1,22 @@
+{% extends "layout.twig" %}
+{% block navbar %}
+    {% set section = 'news-rss' %}
+    {{ parent() }}
+{% endblock %}
+{% block title %}News from VG (RSS){% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="list-group">
+            {% for item in items %}
+                <a class="list-group-item" href="{{ item.get_permalink() }}">
+                    <h4 class="list-group-item-heading">
+                        {{ item.get_title() }} <span class="badge">{{ item.get_date() }}</span>
+                    </h4>
+                    <p class="list-group-item-text">{{ item.get_description() }}</p>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

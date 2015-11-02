@@ -1,0 +1,42 @@
+{% extends "layout.twig" %}
+{% block navbar %}
+    {% set section = 'topfive' %}
+    {{ parent() }}
+{% endblock %}
+{% block title %}Top 5{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-4">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title">Top 5 visited hosts</h3>
+            </div>
+            <div class="panel-body">
+                <ul class="list-group">
+                    {% for host, hits in hosts|slice(0, 5) %}
+                        <li class="list-group-item">
+                            {{ host }} <span class="badge">{{ hits }}</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-8">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Top 5 accessed files</h3>
+            </div>
+            <div class="panel-body">
+                <ul class="list-group">
+                    {% for file, hits in files|slice(0, 5) %}
+                        <li class="list-group-item">
+                            {{ file }} <span class="badge">{{ hits }}</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

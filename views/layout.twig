@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Wunderbaum &ndash; {% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ app.css_path }}main.css">
+    </head>
+    <body>
+        <div id="content" class="container">
+            <div class="page-header"><h1><img src="{{ app.images_path }}wb.jpg">Wunderbaum</h1></div>
+            {% block intro %}{% endblock %}
+            {% block navbar %}
+                <ul class="nav nav-tabs">
+                    <li class="{% if section == 'topfive' %}active{% endif %}"><a href="{{ app.url_generator.generate('highfive') }}">Top 5 charts</a></li>
+                    <li class="{% if section == 'news-rss' %}active{% endif %}"><a href="{{ app.url_generator.generate('news-rss') }}">News from VG (RSS)</a></li>
+                    <li class="{% if section == 'news-json' %}active{% endif %}"><a href="{{ app.url_generator.generate('news-json') }}">Espen's playground (JSON)</a></li>
+                </ul>
+            {% endblock %}
+            {% block content %}{% endblock %}
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+    </body>
+</html>
