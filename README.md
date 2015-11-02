@@ -11,8 +11,12 @@ Installing Wunderbaum
 ---------------------
 Wunderbaum uses [Composer](http://getcomposer.org) for php dependencies and requires php version >= 5.6 to run. 
 
-Download and install composer, then (from the git root of this project) run `composer install` to download and 
-install all application dependencies and set up the autoloader.
+Download and install composer, then download and initialize Wunderbaum directly by running 
+`composer create-project vg-2124666/wunderbaum -s dev` from a folder of your choosing.
+
+If the above command succeeded, there's nothing left to do to install Wunderbaum. However, you can also 
+install from git. To install from git, clone this repository, then (from the git root of this project) run 
+`composer install` to download and install all application dependencies and set up the autoloader.
 
 
 Running Wunderbaum the easy way
